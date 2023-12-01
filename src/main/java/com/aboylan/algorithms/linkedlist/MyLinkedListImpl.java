@@ -7,8 +7,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 
 	@Override
