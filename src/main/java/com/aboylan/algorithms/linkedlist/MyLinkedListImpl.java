@@ -12,8 +12,18 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void addFront(E value) {
-		// TODO Auto-generated method stub
+		Node<E> node = new Node<E>(value);
 
+		if (this.head == null) {
+			this.head = node;
+			this.size++;
+			return;
+		}
+
+		node.next = this.head;
+
+		this.head = node;
+		this.size++;
 	}
 
 	@Override
