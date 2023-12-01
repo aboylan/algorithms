@@ -53,8 +53,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public E getFirst() {
-		// TODO Auto-generated method stub
-		return null;
+		return (E) this.head.value;
 	}
 
 	@Override
@@ -104,7 +103,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void clear() {
-		while(this.size != 0) {
+		while (this.size != 0) {
 			this.removeFirst();
 		}
 	}
