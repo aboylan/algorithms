@@ -104,8 +104,9 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-
+		while(this.size != 0) {
+			this.removeFirst();
+		}
 	}
 
 	private static class Node<E> {
