@@ -65,8 +65,16 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void removeFirst() {
-		// TODO Auto-generated method stub
-
+		
+		if(this.size == 0) {
+			return;
+		}
+		
+		Node<E> currentHead = this.head;
+		this.head = this.head.next;
+		currentHead.value = null;
+		currentHead.next = null;
+		this.size--;
 	}
 
 	@Override
