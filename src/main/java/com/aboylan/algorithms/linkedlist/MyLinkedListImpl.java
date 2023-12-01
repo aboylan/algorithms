@@ -58,7 +58,16 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public E getLast() {
-		// TODO Auto-generated method stub
+
+		Node<E> currentNode = this.head;
+
+		while (currentNode.next != null) {
+			currentNode = currentNode.next;
+			if (currentNode.next == null) {
+				return (E) currentNode.value;
+			}
+		}
+
 		return null;
 	}
 
