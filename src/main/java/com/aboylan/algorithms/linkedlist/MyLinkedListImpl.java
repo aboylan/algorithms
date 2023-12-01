@@ -28,21 +28,21 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void addBack(E value) {
-        Node<E> node = new Node<E>(value);
-        
-        if (this.head == null) {
-            this.head = node;
-            this.size++;
-            return;
-        }
+		Node<E> node = new Node<E>(value);
 
-        Node<E> currentNode = head;
+		if (this.head == null) {
+			this.head = node;
+			this.size++;
+			return;
+		}
 
-        while (currentNode.next != null) {
-            currentNode = currentNode.next;
-        }
-        currentNode.next = node;
-        this.size++;
+		Node<E> currentNode = head;
+
+		while (currentNode.next != null) {
+			currentNode = currentNode.next;
+		}
+		currentNode.next = node;
+		this.size++;
 	}
 
 	@Override
@@ -65,11 +65,11 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void removeFirst() {
-		
-		if(this.size == 0) {
+
+		if (this.size == 0) {
 			return;
 		}
-		
+
 		Node<E> currentHead = this.head;
 		this.head = this.head.next;
 		currentHead.value = null;
@@ -79,8 +79,21 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void removeLast() {
-		// TODO Auto-generated method stub
 
+		if (this.size == 0) {
+			return;
+		}
+
+		Node<E> currentNode = this.head;
+		while (currentNode.next != null) {
+			currentNode = currentNode.next;
+			if (currentNode.next.next == null) {
+				currentNode.next.value = null;
+				currentNode.next = null;
+				this.size--;
+				return;
+			}
+		}
 	}
 
 	@Override
