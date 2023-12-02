@@ -12,6 +12,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void addFront(E value) {
+
 		Node<E> node = new Node<E>(value);
 
 		if (this.head == null) {
@@ -28,6 +29,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void addBack(E value) {
+
 		Node<E> node = new Node<E>(value);
 
 		if (this.head == null) {
@@ -124,7 +126,27 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public void removeValue(E value) {
-		// TODO Auto-generated method stub
+
+		if (this.head == null) {
+			return;
+		}
+
+		if (this.head.value == value) {
+			this.head = this.head.next;
+			this.size--;
+			return;
+		}
+
+		Node<E> currentNode = this.head;
+
+		while (currentNode.next != null) {
+			if (currentNode.next.value == value) {
+				currentNode.next = currentNode.next.next;
+				this.size--;
+				return;
+			}
+			currentNode = currentNode.next;
+		}
 
 	}
 
