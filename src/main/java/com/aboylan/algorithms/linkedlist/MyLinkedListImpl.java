@@ -47,7 +47,25 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 	@Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
+
+		if (this.size == 0 || index > this.size - 1) {
+			return null;
+		}
+
+		if (index == 0) {
+			return (E) this.head.value;
+		}
+
+		int currentIndex = 0;
+		Node<E> currentNode = this.head;
+
+		while (currentNode.next != null) {
+			currentNode = currentNode.next;
+			if (++currentIndex == index) {
+				return (E) currentNode.value;
+			}
+		}
+
 		return null;
 	}
 
