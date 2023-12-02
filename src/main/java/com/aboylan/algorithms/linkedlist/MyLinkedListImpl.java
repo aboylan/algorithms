@@ -79,7 +79,15 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 	@Override
 	public E getLast() {
 
+		if (this.size == 0) {
+			return null;
+		}
+
 		Node<E> currentNode = this.head;
+
+		if (this.size == 1) {
+			return (E) currentNode.value;
+		}
 
 		while (currentNode.next != null) {
 			currentNode = currentNode.next;
@@ -109,6 +117,12 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 	public void removeLast() {
 
 		if (this.size == 0) {
+			return;
+		}
+
+		if (this.size == 2) {
+			this.head.next = null;
+			this.size--;
 			return;
 		}
 
