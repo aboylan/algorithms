@@ -120,13 +120,25 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 			return;
 		}
 
-		if (this.size == 2) {
-			this.head.next = null;
+		Node<E> currentNode = this.head;
+
+		if (this.size == 1) {
+			this.head = null;
+			currentNode.value = null;
+			currentNode.next = null;
+			currentNode = null;
 			this.size--;
 			return;
 		}
 
-		Node<E> currentNode = this.head;
+		if (this.size == 2) {
+			currentNode.next.value = null;
+			currentNode.next.next = null;
+			currentNode.next = null;
+			this.size--;
+			return;
+		}
+
 		while (currentNode.next != null) {
 			currentNode = currentNode.next;
 			if (currentNode.next.next == null) {

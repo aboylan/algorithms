@@ -172,7 +172,7 @@ public class MyLinkedListTest {
 		myLinkedList.removeLast();
 
 		// Then
-		assertEquals(0, myLinkedList.size()-1);
+		assertEquals(0, myLinkedList.size());
 	}
 
 	@Test
